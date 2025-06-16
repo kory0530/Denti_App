@@ -1,0 +1,273 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+  display: flex; /* Added for better centering of the main card */
+  justify-content: center;
+  align-items: flex-start; /* Aligns content to the top */
+  min-height: 100vh; /* Ensures body takes full viewport height */
+  box-sizing: border-box; /* Ensures padding doesn't add to overall width/height */
+}
+
+.card {
+  background-color: #1e1e1e;
+  max-width: 700px;
+  width: 100%; /* Ensures it takes full width up to max-width */
+  margin: 0 auto 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  box-sizing: border-box; /* Important for consistent padding/width */
+}
+
+/* Specific styling for the main-section card */
+#main-section.card {
+    padding: 0; /* Remove padding from the main section to control internal spacing */
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px 0;
+  background-color: #2b2b2b;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensures padding doesn't increase width */
+}
+
+button {
+  background-color: #5a4fcf;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-flex; /* Allows icon and text to be on the same line */
+  align-items: center; /* Vertically aligns icon and text */
+  gap: 8px; /* Space between icon and text */
+}
+
+button:hover {
+  background-color: #443bb7;
+}
+
+.logout-btn {
+  background-color: #cf4f4f;
+  /* float: right; -- Removed float, handled by flexbox in #top-nav */
+}
+
+.logout-btn:hover {
+  background-color: #b74343;
+}
+
+/* --- TOP NAVIGATION BAR STYLES (from previous suggestion) --- */
+#top-nav {
+  display: flex;
+  justify-content: space-between; /* Aligns links to left, logout to right */
+  align-items: center;
+  background-color: #2a2a2a; /* Darker background for the nav bar */
+  padding: 10px 20px;
+  border-top-left-radius: 12px; /* Matches card border-radius */
+  border-top-right-radius: 12px; /* Matches card border-radius */
+  margin-bottom: 20px; /* Space below the nav bar and content */
+}
+
+#top-nav .nav-links {
+  display: flex;
+  gap: 10px; /* Space between navigation buttons */
+}
+
+/* Reusing existing .nav-btn styles but ensuring they work well in the new nav bar */
+.nav-btn {
+  background-color: #2a2a2a; /* Default state background */
+  border: none;
+  color: #bbb;
+  padding: 10px 20px;
+  /* margin: 0 5px; -- Margin handled by gap in .nav-links */
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-flex; /* Allows icon and text */
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-btn:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+.nav-btn.active {
+  background-color: #5a4fcf; /* Active state background */
+  color: white;
+}
+
+/* --- KEY CHANGES FOR SCROLLABLE LISTS --- */
+#articles,
+#recommendations {
+  /* margin-top: 20px; -- Redundant if content-container has padding */
+  max-height: 400px; /* **DEFINE MAXIMUM HEIGHT** (Adjust as needed) */
+  overflow-y: auto;   /* **ENABLE VERTICAL SCROLLING** */
+  background-color: #242424; /* Slightly lighter background for the scrollable area */
+  padding: 15px; /* Internal padding for the scrollable area */
+  border-radius: 8px; /* Rounded corners for the scrollable box */
+  border: 1px solid #333; /* Subtle border */
+  margin-bottom: 20px; /* Space below the scrollable list */
+}
+
+/* Styling for individual items within the scrollable containers */
+.article-item, /* Renamed from .article to .article-item for consistency with JS */
+.recommendation-item { /* Renamed from .recommendation to .recommendation-item */
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border-left: 4px solid #5a4fcf;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow for items */
+}
+
+.article-item:last-child,
+.recommendation-item:last-child {
+  margin-bottom: 0; /* Remove margin from the last item to prevent extra space */
+}
+
+/* --- General Content Area Padding --- */
+#content-container {
+    padding: 0 20px 20px 20px; /* Padding for the content area below the nav */
+}
+
+h2 {
+  border-bottom: 2px solid #5a4fcf;
+  padding-bottom: 5px;
+  margin-top: 20px; /* Adjusted margin-top for better spacing below nav */
+  margin-bottom: 20px; /* Added margin-bottom for spacing before content/input */
+  display: flex; /* Allows icon and text to be aligned */
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+}
+
+/* Styling for the actions (edit/delete buttons) within article/recommendation items */
+.actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px; /* Space between action buttons */
+}
+
+.actions button {
+    padding: 8px 12px;
+    font-size: 14px;
+    gap: 5px; /* Smaller gap for icons in action buttons */
+}
+
+.edit-btn, .edit-article-btn, .edit-rec-btn {
+    background-color: #ffc107; /* Yellow for edit */
+    color: #333;
+}
+
+.edit-btn:hover, .edit-article-btn:hover, .edit-rec-btn:hover {
+    background-color: #e0a800;
+}
+
+.delete-btn, .delete-article-btn, .delete-rec-btn {
+    background-color: #dc3545; /* Red for delete */
+    color: white;
+}
+
+.delete-btn:hover, .delete-article-btn:hover, .delete-rec-btn:hover {
+    background-color: #c82333;
+}
+
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  opacity: 0; /* Starts hidden */
+  visibility: hidden; /* Hidden from screen readers initially */
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.toast.show {
+  opacity: 0.9;
+  visibility: visible;
+}
+
+.toast.success { background-color: #28a745; }
+.toast.error { background-color: #dc3545; }
+.toast.info { background-color: #17a2b8; }
+.toast.warning { background-color: #ffc107; color: #333; }
+
+
+.hidden {
+  display: none;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .card {
+    margin: 0 auto 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  #top-nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 8px; /* Smaller radius for mobile */
+  }
+
+  #top-nav .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 5px; /* Smaller gap for mobile nav links */
+  }
+
+  .nav-btn, .logout-btn {
+    width: 100%;
+    justify-content: center; /* Center text and icon for full-width buttons */
+    padding: 12px 15px; /* Slightly larger touch area */
+  }
+
+  #content-container {
+    padding: 0 15px 15px 15px; /* Adjusted padding for mobile content */
+  }
+
+  #articles, #recommendations {
+    max-height: 300px; /* Potentially smaller max-height on mobile */
+    padding: 10px;
+  }
+
+  .article-item, .recommendation-item {
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 1.3em; /* Slightly smaller headings */
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  input, textarea, button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}

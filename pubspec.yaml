@@ -1,0 +1,74 @@
+name: denti_app
+description: "A Flutter app for dental consultations."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Supabase: autenticación y base de datos
+  supabase_flutter: ^2.3.0
+
+  # Image Picker: tomar fotos o seleccionarlas de la galería
+  image_picker: ^1.1.2
+
+  # Flutter Local Notifications: recordatorios
+  flutter_local_notifications: ^19.2.1
+
+  # Geolocator: ubicación del usuario
+  geolocator: ^14.0.1
+
+  # Google Maps Flutter: mostrar mapas
+  google_maps_flutter: ^2.6.0
+
+  # HTTP: para llamadas a APIs REST
+  http: ^1.2.1
+
+  # Provider: gestión de estado
+  provider: ^6.1.2
+
+  # Logger: manejo de logs y errores
+  logger: ^2.0.2
+
+  # Intl: formateo de fechas, números, etc.
+  intl: ^0.20.0
+
+  # Shared Preferences: almacenamiento local
+  shared_preferences: ^2.2.0
+
+  # Path Provider: acceso a carpetas del sistema
+  path_provider: ^2.1.0
+
+  # Timezone: manejo de zonas horarias
+  timezone: ^0.10.1
+
+  # http_parser: análisis de MIME types, útil con image_picker
+  http_parser: ^4.1.2
+
+  flutter_staggered_grid_view: ^0.6.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 700
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Administrador - Denti</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="toast" class="toast hidden"></div>
+
+  <section id="login-section" class="card">
+    <h2>Iniciar sesión</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button id="loginBtn"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+    <p id="loginMsg"></p>
+  </section>
+
+  <section id="main-section" class="card hidden">
+
+    <nav id="top-nav">
+      <div class="nav-links">
+        <button id="btnArticles" class="nav-btn active"><i class="fas fa-newspaper"></i> Artículos</button>
+        <button id="btnRecommendations" class="nav-btn"><i class="fas fa-lightbulb"></i> Recomendaciones</button>
+      </div>
+      <button id="logoutBtn" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+      </button>
+    </nav>
+
+    <div id="content-container">
+      <div id="articles-section">
+        <h2><i class="fas fa-newspaper"></i> Publicar/Editar Artículo</h2>
+        <input type="text" id="articleTitleInput" placeholder="Título" />
+        <textarea id="articleContentInput" rows="4" placeholder="Contenido"></textarea>
+        <button id="publishArticleButton"><i class="fas fa-upload"></i> Publicar</button>
+        <button id="updateArticleButton" class="hidden"><i class="fas fa-save"></i> Actualizar Artículo</button>
+        <button id="cancelArticleEditButton" class="hidden"><i class="fas fa-times-circle"></i> Cancelar</button>
+
+
+        <h2><i class="fas fa-archive"></i> Artículos publicados</h2>
+        <div id="articles"></div>
+      </div>
+
+      <div id="recommendations-section" class="hidden">
+        <h2><i class="fas fa-lightbulb"></i> Publicar/Editar Recomendación</h2>
+        <input type="text" id="recommendationTitleInput" placeholder="Título de la recomendación" />
+        <textarea id="recommendationContentInput" rows="4" placeholder="Descripción"></textarea>
+        <button id="publishRecommendationButton"><i class="fas fa-plus-circle"></i> Agregar</button>
+        <button id="updateRecommendationButton" class="hidden"><i class="fas fa-save"></i> Actualizar Recomendación</button>
+        <button id="cancelRecommendationEditButton" class="hidden"><i class="fas fa-times-circle"></i> Cancelar</button>
+
+
+        <h2><i class="fas fa-book-reader"></i> Recomendaciones publicadas</h2>
+        <div id="recommendations"></div>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
